@@ -14,7 +14,7 @@ public class AuthenticationPage {
     public SelenideElement address = $x("//*[@id=\"form_register\"]/div[7]/div/input");
     public SelenideElement telephone = $x("//*[@id=\"form_register\"]/div[9]/div/input");
     public SelenideElement checkbox = $x("//*[@id=\"form_register\"]/div[10]/div/label[2]/input");
-    public SelenideElement register = $x("//*[@id=\"form_register\"]/div[11]/div/button");
+    public SelenideElement register = $x("/html/body/div[3]/div/div/div/section/div/div[1]/section/div/div[2]/form/div[11]/div/button");
     public SelenideElement emailFormatError = $x("//*[@id=\"form_register\"]/div[3]/div/div/ul/li");
     public SelenideElement nonMatchingPasswordError = $x("//*[@id=\"form_register\"]/div[5]/div/div/ul/li");
     public SelenideElement lessThanMinimumCharacters = $x("//*[@id=\"form_register\"]/div[9]/div/div/ul/li[1]");

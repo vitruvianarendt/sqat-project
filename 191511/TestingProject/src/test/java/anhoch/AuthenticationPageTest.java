@@ -5,6 +5,8 @@ import com.codeborne.selenide.WebDriverRunner;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
@@ -241,7 +243,7 @@ public class AuthenticationPageTest {
         Thread.sleep(5000);
         String name = "Hana";
         String surname = "H";
-        String email = "trralahdadasdasdfsdssjla5555@gmail.com";
+        String email = "tralalalalala12345550@gmail.com";
         String password = "Test123!";
         String passwordConfirmation = "Test123!";
         String address = "Skopje";
@@ -253,11 +255,19 @@ public class AuthenticationPageTest {
         authenticationPage.confirm.sendKeys(passwordConfirmation);
         authenticationPage.address.sendKeys(address);
         authenticationPage.telephone.sendKeys(telephone);
-        authenticationPage.checkbox.click();
-        authenticationPage.register.click();
+        try {
+            authenticationPage.checkbox.click();
+        } catch (Exception e) {
+            System.out.println("Pause!");
+        }
+        try {
+            WebElement element = WebDriverRunner.getWebDriver().findElement(By.xpath("/html/body/div[3]/div/div/div/section/div/div[1]/section/div/div[2]/form/div[11]/div/button"));
+            element.click();
+        } catch (Exception e) {
+            System.out.println("Pause!");
+        }
         Thread.sleep(10000);
         Assertions.assertEquals("https://www.anhoch.com/users/register/success", WebDriverRunner.getWebDriver().getCurrentUrl());
-        //Assertions.assertEquals(true, authenticationPage.successfulRegister.shouldBe(visible));
     }
 
 }
